@@ -1,0 +1,33 @@
+{
+	"name":"学生登录",
+	"url":"/s_login",
+	"method":"POST",
+	"params":
+	{
+		"username":
+		{
+			"rem":"账号",
+			"need":true,
+			"len":"[1,64)"
+		},
+		"password":
+		{
+			"rem":"密码",
+			"need":true,
+			"len":"[1,32]"
+		}
+	},
+	"error":
+	{
+		"403":"用户不存在或密码错误",
+		"409":"账户被禁用"
+	},
+	"ret":
+	{
+        "tReg": 1527582990957,  //注册时间
+        "tLogin": 0,            //上次登录的时间
+        "username": "terence",  //用户名
+        "email": "133334964@qq.com",    //邮箱
+        "uid": 2                   //用户id
+	}
+}

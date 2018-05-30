@@ -2,19 +2,22 @@
  * @Author: Terence 
  * @Date: 2018-05-26 00:18:50 
  * @Last Modified by: Terence
- * @Last Modified time: 2018-05-29 16:48:21
+ * @Last Modified time: 2018-05-30 21:03:44
  */
 
 
 const express = require('express');
 const router = express.Router();
 const userModel = require('../models/user');
+const common = require('../utils/common');
+
+console.log('loginData', common.inspectAPI(__filename));
 
 router.post('/', function(req, res, next) {
 	let body = req.body;
 	
 
-	userModel.findOne(body, {_id: 0, __v: 0}, function(error, user) {
+	userModel.findOne(body, {_id: 0, __v: 0, password: 0}, function(error, user) {
 		if (error) res.send({
 			no: 400,
 			msg: '登录失败'
@@ -31,7 +34,7 @@ router.post('/', function(req, res, next) {
 			res.send({
 				no: 200,
 				msg: '登录成功',
-				result: user
+				ret: user
 			});
 		}
 	});
