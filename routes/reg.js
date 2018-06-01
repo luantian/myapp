@@ -2,13 +2,12 @@
  * @Author: Terence 
  * @Date: 2018-05-26 00:18:43 
  * @Last Modified by: Terence
- * @Last Modified time: 2018-05-29 16:03:11
+ * @Last Modified time: 2018-06-01 00:12:32
  */
 
 const express = require('express');
 const router = express.Router();
-const userModel = require('../models/user');
-
+const user_model = require('../models/user');
 
 router.post('/', function(req, res, next) {
 
@@ -21,7 +20,7 @@ router.post('/', function(req, res, next) {
 		});
 	}
 	
-	userModel.find({username: body.username}, function(error, users) {
+	user_model.find({username: body.username}, function(error, users) {
 		if (error) res.send({no: 400, msg: 'reg failed'});
 		if (users.length == 0) {
 			userModel.count(function (err, count) {
