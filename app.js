@@ -40,6 +40,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-console.log('branch dev');
-
 module.exports = app;
