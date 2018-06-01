@@ -2,7 +2,7 @@
  * @Author: Terence 
  * @Date: 2018-05-29 12:58:08 
  * @Last Modified by: Terence
- * @Last Modified time: 2018-06-01 15:56:56
+ * @Last Modified time: 2018-06-01 17:37:10
  */
 
 const mongoose = require('mongoose');
@@ -13,9 +13,12 @@ const userSchema = new Schema({
 	password: {type: String},
 	email: {type: String},
 	tReg: {type: Number},
-	tel: {type: Number},
+	tel: {type: String},
+	loginCnt: {type: Number, default: 0},
 	tLogin: {type: Number},
-	loginCnt: {type: Number, default: 0}
+	age: {type: Number},
+	isVip: {type: Boolean},
+	sex: {type: Number}
 }, {collection: 'userInfo'});
 
 const userInfo = mongoose.model('UserInfo', userSchema);
