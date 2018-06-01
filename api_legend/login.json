@@ -1,20 +1,20 @@
 {
-	"name":"学生登录",
+	"name":"用户登录",
 	"url":"/login",
 	"method":"POST",
 	"params":
 	{
 		"username":
 		{
-			"rem":"账号",
-			"need":true,
-			"len":"[1, 16]"
+			"rem": "账号",
+			"need": true,
+			"len": [1, 18]
 		},
 		"password":
 		{
-			"rem":"密码",
-			"need":true,
-			"len":"[1, 18]"
+			"rem": "密码",
+			"need": true,
+			"len": [1, 18]
 		}
 	},
 	"error":
@@ -42,9 +42,9 @@
 			"rem": "上次登录的时间",
 			"value": 1527582990957
 		},
-		"username": {
-			"rem": "用户名",
-			"value": "terence"
+		"loginCnt": {
+			"rem": "登录的次数，0表示首次登录",
+			"value": 5
 		},
 		"email": {
 			"rem": "邮箱",
