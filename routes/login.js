@@ -2,7 +2,7 @@
  * @Author: Terence 
  * @Date: 2018-05-26 00:18:50 
  * @Last Modified by: Terence
- * @Last Modified time: 2018-06-01 11:51:26
+ * @Last Modified time: 2018-06-04 14:40:26
  */
 
 
@@ -39,23 +39,24 @@ router[login_legend['method'].toLowerCase()]('/', inspect_params, function(req, 
 	user_model.findOneAndUpdate(query_params, update, function(error, user) {
 		if (error) {
 			ret.no = 405;
-		}
-		if (!user) {
-			ret.no = 403;
 		} else {
-			ret.no = 200;
-		}
-		if (ret.no == 200) {
-			ret.result = {};
-			/**
-			 * 设置返回给客户端的属性
-			 */
-			for (let i = 0; i < filter_keys.length; i++) {
-				ret.result[filter_keys[i]] = user[filter_keys[i]];
+			if (!user) {
+				ret.no = 403;
+			} else {
+				ret.no = 200;
 			}
-			ret.msg = login_legend.success[ret.no];
-		} else {
-			ret.msg = login_legend.error[ret.no];
+			if (ret.no == 200) {
+				ret.result = {};
+				/**
+				 * 设置返回给客户端的属性
+				 */
+				for (let i = 0; i < filter_keys.length; i++) {
+					ret.result[filter_keys[i]] = user[filter_keys[i]];
+				}
+				ret.msg = login_legend.success[ret.no];
+			} else {
+				ret.msg = login_legend.error[ret.no];
+			}
 		}
 		res.send(ret);
 	});
