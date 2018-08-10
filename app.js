@@ -9,7 +9,7 @@ const common = require('./utils/common');
 
 const router = require('./routes/route');
 
-const app = express();
+const app = express(); 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
